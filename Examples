@@ -1,0 +1,6 @@
+TypeScript Compiler :-
+https://www.w3schools.com/typescript/trytypescript.php?filename=demo_editor
+
+const names: string[] = [];
+names.push("Dylan");
+console.log(names); // [ 'Dylan' ]
