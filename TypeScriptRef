@@ -284,7 +284,7 @@ let myVar: any;
 Create an empty "myVar" variable, and specify it should be an unknown type:
 let myVar: unknown;
 
-> > TypeScript Arrays
+> > TypeScript Arrays \*\*\*\* --( Compiler : https://www.w3schools.com/typescript/trytypescript.php?filename=demo_editor )--
 
 TypeScript has a specific syntax for typing arrays.
 
