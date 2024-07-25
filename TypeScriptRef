@@ -1,0 +1,134 @@
+TypeScript Tutorial -https://www.w3schools.com/typescript/index.php
+
+TypeScript is JavaScript with added syntax for types.
+
+> > TypeScript Introduction
+
+What is TypeScript? -------------------------------------------------------------------------------------- v --
+
+TypeScript is a syntactic superset of JavaScript which adds static typing.
+This basically means that TypeScript adds syntax on top of JavaScript, allowing developers to add types.
+
+** TypeScript being a "Syntactic Superset" means that it shares the same base syntax as JavaScript, but adds something to it. **
+
+Why should I use TypeScript? ----------------------------------------------------------------------------- v --
+
+JavaScript is a loosely typed language. It can be difficult to understand what types of data are being passed around in JavaScript.
+In JavaScript, function parameters and variables don't have any information! So developers need to look at documentation, or guess based on the implementation.
+TypeScript allows specifying the types of data being passed around within the code, and has the ability to report errors when the types don't match.
+For example, TypeScript will report an error when passing a string into a function that expects a number. JavaScript will not.
+
+** TypeScript uses compile time type checking. Which means it checks if the specified types match before running the code, not while running the code. **
+
+How do I use TypeScript? --------------------------------------------------------------------------------- v --
+
+A common way to use TypeScript is to use the official TypeScript compiler, which transpiles TypeScript code into JavaScript.
+The next section shows how to get the compiler setup for a local project.
+
+Some popular code editors, such as Visual Studio Code, have built-in TypeScript support and can show errors as you write code!
+
+TypeScript Exercises
+TypeScript allows developers to add "types" to JavaScript.
+JavaScript is a "losely" typed language.
+
+> > TypeScript Getting Started
+
+TypeScript Compiler -------------------------------------------------------------------------------------- v --
+
+TypeScript is transpiled into JavaScript using a compiler.
+
+** TypeScript being converted into JavaScript means it runs anywhere that JavaScript runs! **
+
+Installing the Compiler ---------------------------------------------------------------------------------- v --
+
+TypeScript has an official compiler which can be installed through npm.
+Learn more about npm, and how to get started here: What is npm? "https://www.w3schools.com/whatis/whatis_npm.asp"
+
+Within your npm project, run the following command to install the compiler:
+
+npm install typescript --save-dev
+
+Which should give you an output similar to:
+added 1 package, and audited 2 packages in 2s
+found 0 vulnerabilities
+
+The compiler is installed in the node_modules directory and can be run with: npx tsc.
+npx tsc
+
+Which should give you an output similar to:
+Version 4.5.5
+tsc: The TypeScript Compiler - Version 4.5.5
+Followed by a list of all the Common Commands.
+
+Configuring the compiler ---------------------------------------------------------------------------------- v --
+
+By default the TypeScript compiler will print a help message when run in an empty project.
+The compiler can be configured using a tsconfig.json file.
+
+You can have TypeScript create tsconfig.json with the recommended settings with:
+npx tsc --init
+
+Which should give you an output similar to:
+Created a new tsconfig.json with:
+TS
+target: es2016
+module: commonjs
+strict: true
+esModuleInterop: true
+skipLibCheck: true
+forceConsistentCasingInFileNames: true
+You can learn more at https://aka.ms/tsconfig.json
+
+Here is an example of more things you could add to the tsconfig.json file:
+{
+"include": ["src"],
+"compilerOptions": {
+"outDir": "./build"
+}
+}
+You can open the file in an editor to add those options. This will configure the TypeScript compiler to transpile TypeScript files located in the src/ directory of your project, into JavaScript files in the build/ directory.
+
+** This is one way to quickly get started with TypeScript. There are many other options available such as a create-react-app template, a node starter project, and a webpack plugin. **
+
+Exercise:
+The TypeScript compiler can be configured which file?
+tsconfig.json
+
+> > TypeScript Simple Types
+
+TypeScript supports some simple types (primitives) you may know.
+
+There are three main primitives in JavaScript and TypeScript.
+
+boolean - true or false values
+number - whole numbers and floating point values
+string - text values like "TypeScript Rocks"
+There are also 2 less common primitives used in later versions of Javascript and TypeScript.
+
+bigint - whole numbers and floating point values, but allows larger negative and positive numbers than the number type.
+symbol are used to create a globally unique identifier.
+
+Type Assignment ---------------------------------------------------------------------------------- v --
+
+When creating a variable, there are two main ways TypeScript assigns a type:
+
+> > > Explicit
+> > > Implicit
+
+Explicit Type -------- (_v_)
+Explicit - writing out the type:
+
+let firstName: string = "Dylan";
+console.log(typeof firstName); // string
+
+Explicit type assignment are easier to read and more intentional.
+
+Implicit Type -------- (_v_)
+Implicit - TypeScript will "guess" the type, based on the assigned value:
+
+let firstName = "Dylan";
+console.log(typeof firstName); // string
+
+Note: Having TypeScript "guess" the type of a value is called infer.
+Implicit assignment forces TypeScript to infer the value.
+Implicit type assignment are shorter, faster to type, and often used when developing and testing.
