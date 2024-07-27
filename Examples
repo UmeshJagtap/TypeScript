@@ -1,6 +1,14 @@
-TypeScript Compiler :-
-https://www.w3schools.com/typescript/trytypescript.php?filename=demo_editor
+// TypeScript Compiler :-
+// https://www.w3schools.com/typescript/trytypescript.php?filename=demo_editor
 
+// Array
+// Example 1
 const names: string[] = [];
-names.push("Dylan");
+names.push('Dylan');
 console.log(names); // [ 'Dylan' ]
+
+// Example 2
+const names: readonly string[] = ['Dylan'];
+names.push('Jack'); // Error: Property 'push' does not exist on type 'readonly string[]'.
+// try removing the readonly modifier and see if it works?
+console.log(names);
