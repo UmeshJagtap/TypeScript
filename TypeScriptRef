@@ -437,3 +437,77 @@ type: "Toyota",
 model: "Corolla",
 year: 2009
 };
+console.log(car);
+
+Console :-
+{ type: 'Toyota', model: 'Corolla', year: 2009 }
+
+**----- Object types like this can also be written separately, and even be reused, look at interfaces for more details. -----** >> https://www.w3schools.com/typescript/typescript_aliases_and_interfaces.php
+
+Type Inference ------------------------------------------------------------------------------------- v --
+TypeScript can infer the types of properties based on their values.
+
+Example
+const car = {
+type: "Toyota",
+};
+car.type = "Ford"; // no error
+car.type = 2; // Error: Type 'number' is not assignable to type 'string'.
+console.log(car);
+
+Console :-
+prog.ts(5,7): error TS2322: Type 'number' is not assignable to type 'string'.
+
+Optional Properties -------------------------------------------------------------------------------- v --
+Optional properties are properties that don't have to be defined in the object definition.
+
+Example without an optional property
+const car: { type: string, mileage: number } = { // Error: Property 'mileage' is missing in type '{ type: string; }' but required in type '{ type: string; mileage: number; }'.
+type: "Toyota",
+};
+car.mileage = 2000;
+
+Example with an optional property
+const car: { type: string, mileage?: number } = { // no error
+type: "Toyota"
+};
+car.mileage = 2000;
+console.log(car);
+
+Console :-
+{ type: 'Toyota', mileage: 2000 }
+
+Index Signatures ------------------------------------------------------------------------------------ v --
+Index signatures can be used for objects without a defined list of properties.
+
+Example
+const nameAgeMap: { [index: string]: number } = {};
+nameAgeMap.Jack = 25; // no error
+nameAgeMap.Mark = "Fifty"; // Error: Type 'string' is not assignable to type 'number'.
+console.log(nameAgeMap);
+
+Console :-
+prog.ts(3,7): error TS2322: Type 'string' is not assignable to type 'number'.
+
+**----- Index signatures like this one can also be expressed with utility types like Record<string, number>. -----**
+
+// Learn more about utility types like this in our TypeScript Utility Types chapter.
+
+Exercise
+Add the correct types for the object below:
+
+const car: { type: string, model: string, year: number } = {
+type: "Toyota",
+model: "Corolla",
+year: 2009
+};
+
+Specify that the second property, called model, should be optional:
+const car: { type: string, model?: string } = {
+type: "Toyota"
+};
+
+> > TypeScript Enums
+
+An enum is a special "class" that represents a group of constants (unchangeable variables).
+Enums come in two flavors string and numeric. Lets start with numeric.
