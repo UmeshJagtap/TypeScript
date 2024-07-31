@@ -703,3 +703,176 @@ interface myExtInterface extends myInterface {
 }
 
 > > TypeScript Union Types
+Union types are used when a value can be more than a single type.
+Such as when a property would be string or number.
+
+Union | (OR) ----------------------------------------------------------------------------------v--
+Using the | we are saying our parameter is a string or number:
+
+Example
+function printStatusCode(code: string | number) {
+  console.log(`My status code is ${code}.`)
+}
+printStatusCode(404);
+printStatusCode('404');
+
+Console :-
+My status code is 404.
+My status code is 404.
+
+Union Type Errors -----------------------------------------------------------------------------v--
+Note: you need to know what your type is when union types are being used to avoid type errors:
+
+Example
+function printStatusCode(code: string | number) {
+  console.log(`My status code is ${code.toUpperCase()}.`) // error: Property 'toUpperCase' does not exist on type 'string | number'. Property 'toUpperCase' does not exist on type 'number'
+}
+Console :-
+prog.ts(2,51): error TS2339: Property 'toUpperCase' does not exist on type 'string | number'.
+  Property 'toUpperCase' does not exist on type 'number'.
+
+In our example we are having an issue invoking toUpperCase() as its a string method and number doesn't have access to it.
+
+Exercise
+Specify that the parameter "myVar" for the function can be either string or number:
+
+function myFunc(myVar: string | number) {
+  console.log(myVar)
+}
+
+> > TypeScript Functions
+
+TypeScript has a specific syntax for typing function parameters and return values.
+Read more about functions here -https://www.w3schools.com/js/js_functions.asp
+
+Return Type -----------------------------------------------------------------------------v--
+
+The type of the value returned by the function can be explicitly defined.
+
+Example
+// the `: number` here specifies that this function returns a number
+function getTime(): number {
+  return new Date().getTime();
+}
+console.log(getTime());
+
+Console :-
+1648464745471
+
+**----- If no return type is defined, TypeScript will attempt to infer it through the types of the variables or expressions returned. -----**
+
+Void Return Type -----------------------------------------------------------------------v--
+
+The type void can be used to indicate a function doesn't return any value.
+
+Example
+function printHello(): void {
+  console.log('Hello!');
+}
+printHello();
+
+Console :-
+Hello!
+
+Parameters ------------------------------------------------------------------------------v--
+Function parameters are typed with a similar syntax as variable declarations.
+
+Example
+function multiply(a: number, b: number) {
+  return a * b;
+}
+console.log(multiply(2,5))
+
+Console :-
+10
+
+**----- If no parameter type is defined, TypeScript will default to using any, unless additional type information is available as shown in the Default Parameters and Type Alias sections below. -----**
+
+Optional Parameters ---------------------------------------------------------------------v--
+By default TypeScript will assume all parameters are required, but they can be explicitly marked as optional.
+
+Example
+// the `?` operator here marks parameter `c` as optional
+function add(a: number, b: number, c?: number) {
+  return a + b + (c || 0);
+}
+console.log(add(2,5))
+
+Console :-
+7
+
+Default Parameters ----------------------------------------------------------------------v--
+For parameters with default values, the default value goes after the type annotation:
+
+Example
+function pow(value: number, exponent: number = 10) {
+  return value ** exponent;
+}
+console.log(pow(10));
+
+Console :-
+10000000000
+
+TypeScript can also infer the type from the default value.
+
+Named Parameters ------------------------------------------------------------------------v--
+Typing named parameters follows the same pattern as typing normal parameters.
+
+Example
+function divide({ dividend, divisor }: { dividend: number, divisor: number }) {
+  return dividend / divisor;
+}
+console.log(divide({dividend: 10, divisor: 2}));
+
+Console :-
+5
+
+Rest Parameters ------------------------------------------------------------------------v--
+Rest parameters can be typed like normal parameters, but the type must be an array as rest parameters are always arrays.
+
+Example
+function add(a: number, b: number, ...rest: number[]) {
+  return a + b + rest.reduce((p, c) => p + c, 0);
+}
+console.log(add(10,10,10,10,10));
+
+Console :-
+50
+
+Type Alias -----------------------------------------------------------------------------v--
+Function types can be specified separately from functions with type aliases.
+These types are written similarly to arrow functions, read more about arrow functions here.
+- https://www.w3schools.com/js/js_arrow_function.asp
+
+Example
+type Negate = (value: number) => number;
+// in this function, the parameter `value` automatically gets assigned the type `number` from the type `Negate`
+const negateFunction: Negate = (value) => value * -1;
+console.log(negateFunction(10));
+
+Console :-
+-10
+
+Exercise
+Create a function that returns the string "Learning is Fun!", with the return type explicitly defined:
+function myFunc(): string {
+ return "Learning is Fun!";
+}
+
+Create a function that specifically does not return a value:
+function myFunc(): void {
+ return "Learning is Fun!";
+}
+
+Create a function with 2 parameters (myVar1 and myVar2), that are both strings:
+function myFunc(myVar1 :string, myVar2:string) {
+  return(myVar1 + myVar2);
+}
+
+Create a function with 2 parameters (myVar1 and myVar2,in that order), that are both strings.
+Specify that myVar2 should be optional:
+function myFunc(myVar1 :string, myVar2? :string) {
+  return(myVar1 + (myVar2 || ""));
+}
+
+> > TypeScript Casting
