@@ -740,6 +740,7 @@ function myFunc(myVar: string | number) {
   console.log(myVar)
 }
 
+
 > > TypeScript Functions
 
 TypeScript has a specific syntax for typing function parameters and return values.
@@ -875,4 +876,300 @@ function myFunc(myVar1 :string, myVar2? :string) {
   return(myVar1 + (myVar2 || ""));
 }
 
+
 > > TypeScript Casting
+
+There are times when working with types where it's necessary to override the type of a variable, such as when incorrect types are provided by a library.
+Casting is the process of overriding a type.
+
+Casting with as -----------------------------------------------------------------------------v--
+A straightforward way to cast a variable is using the as keyword, which will directly change the type of the given variable.
+
+Example
+let x: unknown = 'hello';
+console.log((x as string).length);
+
+Console :-
+5
+
+**----- Casting doesn't actually change the type of the data within the variable, for example the following code will not work as expected since the variable x is still holds a number. -----**
+
+let x: unknown = 4;
+console.log((x as string).length); 
+// prints undefined since numbers don't have a length
+
+**----- TypeScript will still attempt to typecheck casts to prevent casts that don't seem correct, 
+for example the following will throw a type error since TypeScript knows casting a string to a number doesn't makes sense without converting the data: -----**
+
+console.log((4 as string).length); 
+// Error: Conversion of type 'number' to type 'string' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+
+The Force casting section below covers how to override this.
+
+Casting with <> -----------------------------------------------------------------------------v--
+Using <> works the same as casting with as.
+
+Example
+let x: unknown = 'hello';
+console.log((<string>x).length);
+
+Console :-
+5
+
+**----- This type of casting will not work with TSX, such as when working on React files. -----**
+
+Force casting -----------------------------------------------------------------------------v--
+To override type errors that TypeScript may throw when casting, first cast to unknown, then to the target type.
+
+Example
+let x = 'hello';
+console.log(((x as unknown) as number).length); // x is not actually a number so this will return undefined
+
+Console :-
+prog.ts(2,40): error TS2339: Property 'length' does not exist on type 'number'.
+
+Exercise:
+Cast the "unknown" variable myVar as a string, using the as keyword:
+let myVar: unknown = "Hello World";
+console.log((myVar as string).length);
+
+Cast the "unknown" variable myVar as a string, using < >:
+let myVar: unknown = "Hello world!";
+console.log((<string>myVar).length);
+
+
+> > TypeScript Classes
+TypeScript adds types and visibility modifiers to JavaScript classes.
+Learn more about JavaScript classes here. -https://www.w3schools.com/js/js_classes.asp
+
+Members: Types -----------------------------------------------------------------------------v--
+The members of a class (properties & methods) are typed using type annotations, similar to variables.
+
+Example
+class Person {
+  name: string;
+}   
+const person = new Person();
+person.name = "Jane";
+console.log(person);
+
+Console :-
+Person { name: 'Jane' }
+
+Members: Visibility ------------------------------------------------------------------------v--
+Class members also be given special modifiers which affect visibility.
+
+There are three main visibility modifiers in TypeScript.
+public - (default) allows access to the class member from anywhere
+private - only allows access to the class member from within the class
+protected - allows access to the class member from itself and any classes that inherit it, which is covered in the inheritance section below
+
+Example
+class Person {
+  private name: string;
+
+  public constructor(name: string) {
+    this.name = name;
+  }
+
+  public getName(): string {
+    return this.name;
+  }
+}
+const person = new Person("Jane");
+console.log(person.getName()); // person.name isn't accessible from outside the class since it's private
+
+Console :-
+Jane
+
+**----- The this keyword in a class usually refers to the instance of the class. Read more about this here. -https://www.w3schools.com/js/js_this.asp -----**
+
+Parameter Properties ------------------------------------------------------------------------v--
+TypeScript provides a convenient way to define class members in the constructor, by adding a visibility modifiers to the parameter.
+
+Example
+class Person {
+  // name is a private member variable
+  public constructor(private name: string) {}
+
+  public getName(): string {
+    return this.name;
+  }
+}
+const person = new Person("Jane");
+console.log(person.getName());
+
+Console :-
+Jane
+
+Readonly ------------------------------------------------------------------------------------v--
+Similar to arrays, the readonly keyword can prevent class members from being changed.
+
+Example
+class Person {
+  private readonly name: string;
+
+  public constructor(name: string) {
+    // name cannot be changed after this initial definition, which has to be either at it's declaration or in the constructor.
+    this.name = name;
+  }
+
+  public getName(): string {
+    return this.name;
+  }
+}     
+const person = new Person("Jane");
+console.log(person.getName());
+
+Console :-
+Jane
+
+Inheritance: Implements ---------------------------------------------------------------------v--
+Interfaces (covered here -https://www.w3schools.com/typescript/typescript_aliases_and_interfaces.php) 
+can be used to define the type a class must follow through the implements keyword.
+
+Example
+interface Shape {
+  getArea: () => number;
+}
+
+class Rectangle implements Shape {
+  public constructor(protected readonly width: number, protected readonly height: number) {}
+
+  public getArea(): number {
+    return this.width * this.height;
+  }
+}
+
+const myRect = new Rectangle(10,20);
+console.log(myRect.getArea());
+
+Console :-
+200
+
+**----- A class can implement multiple interfaces by listing each one after implements, separated by a comma like so: class Rectangle implements Shape, Colored { -----**
+
+Inheritance: Extends ------------------------------------------------------------------------v--
+Classes can extend each other through the extends keyword. A class can only extends one other class.
+
+Example
+
+interface Shape {
+  getArea: () => number;
+}
+      
+class Rectangle implements Shape {
+  public constructor(protected readonly width: number, protected readonly height: number) {}
+
+  public getArea(): number {
+    return this.width * this.height;
+  }
+}
+      
+class Square extends Rectangle {
+  public constructor(width: number) {
+    super(width, width);
+  }
+  // getArea gets inherited from Rectangle
+}
+
+const mySq = new Square(20);
+console.log(mySq.getArea());
+
+Console :-
+400
+
+Override -----------------------------------------------------------------------------------v--
+When a class extends another class, it can replace the members of the parent class with the same name.
+Newer versions of TypeScript allow explicitly marking this with the override keyword.
+
+Example
+
+interface Shape {
+  getArea: () => number;
+}
+
+class Rectangle implements Shape {
+  // using protected for these members allows access from classes that extend from this class, such as Square
+  public constructor(protected readonly width: number, protected readonly height: number) {}
+
+  public getArea(): number {
+    return this.width * this.height;
+  }
+
+  public toString(): string {
+    return `Rectangle[width=${this.width}, height=${this.height}]`;
+  }
+}
+
+class Square extends Rectangle {
+  public constructor(width: number) {
+    super(width, width);
+  }
+
+  // this toString replaces the toString from Rectangle
+  public override toString(): string {
+    return `Square[width=${this.width}]`;
+  }
+}
+
+const mySq = new Square(20);
+console.log(mySq.toString());
+
+Console :-
+Square[width=20]
+
+**----- By default the override keyword is optional when overriding a method, and only helps to prevent accidentally overriding a method that does not exist. 
+Use the setting noImplicitOverride to force it to be used when overriding. -----**
+
+Abstract Classes -----------------------------------------------------------------------------v--
+Classes can be written in a way that allows them to be used as a base class for other classes without having to implement all the members. 
+This is done by using the abstract keyword. Members that are left unimplemented also use the abstract keyword.
+
+Example
+
+abstract class Polygon {
+  public abstract getArea(): number;
+
+  public toString(): string {
+    return `Polygon[area=${this.getArea()}]`;
+  }
+}
+
+class Rectangle extends Polygon {
+  public constructor(protected readonly width: number, protected readonly height: number) {
+    super();
+  }
+
+  public getArea(): number {
+    return this.width * this.height;
+  }
+}
+
+const myRect = new Rectangle(10,20);
+console.log(myRect.getArea());
+
+Console :-
+200
+
+**----- Abstract classes cannot be directly instantiated, as they do not have all their members implemented. -----**
+
+
+Exercise
+
+Specify that Person.name can only be accessed within the class, but that the method Person.getName() can be accessed anywhere:
+
+class Person {
+private name: string;
+
+ public constructor(name: string) {
+  this.name = name;
+ }
+
+ public getName(): string {
+  return this.name;
+ }
+}
+
+
+> > TypeScript Basic Generics
