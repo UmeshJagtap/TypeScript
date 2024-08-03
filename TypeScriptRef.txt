@@ -1286,3 +1286,20 @@ console.log(createPair<string, number>('Meaning', 42));
 
 TypeScript comes with a large number of types that can help with some common type manipulation, usually referred to as utility types.
 This chapter covers the most popular utility types.
+
+Partial ----------------------------------------------------------------------------v--
+Partial changes all the properties in an object to be optional.
+
+Example
+interface Point {
+  x: number;
+  y: number;
+}
+
+let pointPart: Partial<Point> = {}; // `Partial` allows x and y to be optional
+pointPart.x = 10;
+
+console.log(pointPart);
+
+Console :-
+{ x: 10 }
