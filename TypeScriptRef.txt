@@ -1461,5 +1461,179 @@ Record<string, number> is equivalent to { [key: string]: number }
 
 **----- keyof is a keyword in TypeScript which is used to extract the key type from an object type. -----**
 
-keyof with explicit keys
+keyof with explicit keys ---------------------------------------------------------v--
 When used on an object type with explicit keys, keyof creates a union type with those keys.
+
+Example 
+
+interface Person {
+  name: string;
+  age: number;
+}
+
+// `keyof Person` here creates a union type of "name" and "age", other strings will not be allowed
+function printPersonProperty(person: Person, property: keyof Person) {
+  console.log(`Printing person property ${property}: "${person[property]}"`);
+}
+
+let person = {
+  name: "Max",
+  age: 27
+};
+
+printPersonProperty(person, "name"); // Printing person property name: "Max"s
+
+Console :-
+Printing person property name: "Max"
+
+keyof with index signatures ------------------------------------------------------v--
+keyof can also be used with index signatures to extract the index type.
+
+Example 
+
+type StringMap = { [key: string]: unknown };
+// `keyof StringMap` resolves to `string` here
+function createStringPair(property: keyof StringMap, value: string): StringMap {
+  return { [property]: value };
+}
+
+> > TypeScript Null & Undefined
+
+TypeScript has a powerful system to deal with null or undefined values.
+
+**----- By default null and undefined handling is disabled, and can be enabled by setting strictNullChecks to true.
+
+The rest of this page applies for when strictNullChecks is enabled.-----**
+
+Types ---------------------------------------------------------------------------v--
+null and undefined are primitive types and can be used like other types, such as string.
+
+Example
+
+let value: string | undefined | null = null;
+console.log(typeof value);
+
+value = 'hello';
+console.log(typeof value);
+
+value = undefined;
+console.log(typeof value);
+
+Console :-
+object
+string
+undefined
+
+**----- When strictNullChecks is enabled, TypeScript requires values to be set unless undefined is explicitly added to the type. -----**
+
+Optional Chaining ---------------------------------------------------------------v--
+Optional Chaining is a JavaScript feature that works well with TypeScript's null handling. 
+It allows accessing properties on an object, that may or may not exist, with a compact syntax. 
+It can be used with the ?. operator when accessing properties.
+
+Example
+
+interface House {
+  sqft: number;
+  yard?: {
+    sqft: number;
+  };
+}
+            
+function printYardSize(house: House) {
+  const yardSize = house.yard?.sqft;
+
+  if (yardSize === undefined) {
+    console.log('No yard');
+  } else {
+    console.log(`Yard is ${yardSize} sqft`);
+  }
+}
+            
+let home: House = {
+  sqft: 500
+};
+            
+printYardSize(home); // Prints 'No yard'
+
+Console :-
+No yard
+
+
+Example 2
+
+interface House {
+  sqft: number;
+  yard?: {
+    sqft: number;
+  };
+}
+            
+function printYardSize(house: House) {
+  const yardSize = house.yard?.sqft;
+
+  if (yardSize === undefined) {
+    console.log('No yard');
+  } else {
+    console.log(`Yard is ${yardSize} sqft`);
+  }
+}
+            
+let house: House = {
+  sqft: 500,
+  yard: {
+  	sqft: 900
+  }
+};
+            
+printYardSize(house); 
+
+Console :-
+Yard is 900 sqft
+
+Nullish Coalescence ---------------------------------------------------------------v--
+Nullish Coalescence is another JavaScript feature that also works well with TypeScript's null handling. 
+It allows writing expressions that have a fallback specifically when dealing with null or undefined. 
+This is useful when other falsy values can occur in the expression but are still valid. It can be used with the ?? operator in an expression, similar to using the && operator.
+
+Example
+
+function printMileage(mileage: number | null | undefined) {
+  console.log(`Mileage: ${mileage ?? 'Not Available'}`);
+}
+            
+printMileage(null); // Prints 'Mileage: Not Available'
+
+printMileage(0); // Prints 'Mileage: 0'
+
+Console :-
+Mileage: Not Available
+Mileage: 0
+
+Null Assertion -------------------------------------------------------------------v--
+TypeScript's inference system isn't perfect, there are times when it makes sense to ignore a value's possibility of being null or undefined. 
+An easy way to do this is to use casting, but TypeScript also provides the ! operator as a convenient shortcut.
+
+Example
+
+function getValue(): string | undefined {
+  return 'hello';
+}
+            
+let value = getValue();
+console.log('value length: ' + value!.length);
+
+Console :-
+value length: 5
+
+**----- Just like casting, this can be unsafe and should be used with care. -----**
+
+Array bounds handling ------------------------------------------------------------v--
+Even with strictNullChecks enabled, by default TypeScript will assume array access will never return undefined (unless undefined is part of the array type).
+The config noUncheckedIndexedAccess can be used to change this behavior.
+
+Example
+let array: number[] = [1, 2, 3];
+let value = array[0]; // with `noUncheckedIndexedAccess` this has the type `number | undefined`
+
+> > TypeScript Definitely Typed
