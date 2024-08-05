@@ -1637,3 +1637,74 @@ let array: number[] = [1, 2, 3];
 let value = array[0]; // with `noUncheckedIndexedAccess` this has the type `number | undefined`
 
 > > TypeScript Definitely Typed
+
+NPM packages in the broad JavaScript ecosystem doesn't always have types available.
+Sometimes the projects are no longer maintained, and other times they aren't interested in, agree with, or have time to use TypeScript.
+
+Using non-typed NPM packages in TypeScript ---------------------------------------v--
+Using untyped NPM packages with TypeScript will not be type safe due to lack of types.
+To help TypeScript developers use such packages, there is a community maintained project called Definitely Typed.
+Definitely Typed is a project that provides a central repository of TypeScript definitions for NPM packages which do not have types.
+
+Example
+
+npm install --save-dev @types/jquery
+
+No other steps are usually needed to use the types after installing the declaration package, 
+TypeScript will automatically pick up the types when using the package itself.
+
+**----- Editors such as Visual Studio Code will often suggest installing packages like these when types are missing. -----**
+
+> > TypeScript 5.x Updates
+
+TypeScript is actively maintained and updated by Microsoft. In version 5.x a lot of utility and quality of life updates were made.
+This chapter covers the most popular updates to allow stricter and more flexible type safety.
+
+**----- As a reminder these features will only be available in 5.x+ -----**
+
+Template Literal Types ------------------------------------------------------------v--
+Template Literal Types now allows us to create more precise types using template literals. 
+We can define custom types that depend on the actual values of strings at compile time.
+
+Example
+
+type Color = "red" | "green" | "blue"; 
+type HexColor<T extends Color> = `#${string}`;
+
+// Usage
+let myColor: HexColor<"blue"> = "#0000FF";
+
+console.log(myColor)
+
+Console :-
+#0000FF
+
+Index Signature Labels ------------------------------------------------------------v--
+Index Signature Labels allows us to label index signatures using computed property names. 
+It helps in providing more descriptive type information when working with dynamic objects.
+
+Example
+
+type DynamicObject = { [key: string as `dynamic_${string}`]: string };
+
+// Usage: 
+let obj: DynamicObject = { dynamic_key: "value" };
+
+console.log(obj);
+
+Console :-
+{ dynamic_key: "value" }
+
+
+**----- 5.x also now supports native JavaScript private fields. 
+The TypeScript 'private' still works as discussed in Classes section.-----**
+
+
+
+> > TypeScript Online Editor
+- https://www.w3schools.com/typescript/trytypescript.php?filename=demo_editor
+
+Here is a way users can check for version of TypeScript in IDE.
+Command prompt to be used in any Terminal or Command prompt.
+
+tsc -v
