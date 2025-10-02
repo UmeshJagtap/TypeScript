@@ -53,6 +53,7 @@ export default function Home() {
         <div className="typewriter">
           <div>
             <p>CSS Typewriter effect</p>
+            <p>Just type it...</p>
           </div>
         </div>
       </main>
