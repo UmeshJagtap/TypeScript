@@ -7,3 +7,11 @@ TS Run
 tsc app.ts >> this will generate a new app.js file
 
 http://127.0.0.1:5500/ts%20code%20snips/index.html
+
+// -----------------------------------------------------<< Git Commands >>
+git init
+git add .
+git commit -m "basic core types"
+git branch -M main
+git remote add origin https://github.com/Surendrakumar..
+git push -u origin main
