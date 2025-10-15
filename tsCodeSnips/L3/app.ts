@@ -37,28 +37,90 @@
 // --------------------------------------------------<< LITERAL TYPES >>
 // LITERAL TYPES
 
-function combine2(
-  num1: number | string | boolean,
-  num2: number | string,
-  conversionType: 'as-number' | 'as-string'
-) {
-  let result = '';
-  if (
-    (typeof num1 === 'number' && typeof num2 === 'number') ||
-    conversionType === 'as-number'
-  ) {
-    result = +num1 + +num2;
-  } else {
-    result = num1.toString() + num2.toString();
-  }
-  return result;
+// function combine2(
+//   num1: number | string | boolean,
+//   num2: number | string,
+//   conversionType: 'as-number' | 'as-string'
+// ) {
+//   let result = '';
+//   if (
+//     (typeof num1 === 'number' && typeof num2 === 'number') ||
+//     conversionType === 'as-number'
+//   ) {
+//     result = +num1 + +num2;
+//   } else {
+//     result = num1.toString() + num2.toString();
+//   }
+//   return result;
+// }
+
+// const sum1 = combine2('10', '20', 'as-number');
+// const sum2 = combine2(10, 50, 'as-number');
+// const combinedName = combine2('Patel', 'MernStack', 'as-string');
+// console.log(sum1);
+// console.log(sum2);
+// console.log(combinedName);
+
+// --------------------------------------------------<< TYPE ALIAS / CUSTOM TYPES >>
+// TYPE ALIAS / CUSTOM TYPES
+
+// // type Combinable = number | string | boolean | string[];  --Example of type alias
+// type Combinable = number | string;
+
+// function combine3(
+//   num1: Combinable,
+//   num2: Combinable,
+//   conversionType: 'as-number' | 'as-string'
+// ) {
+//   let result = '';
+//   if (
+//     (typeof num1 === 'number' && typeof num2 === 'number') ||
+//     conversionType === 'as-number'
+//   ) {
+//     result = +num1 + +num2;
+//   } else {
+//     result = num1.toString() + num2.toString();
+//   }
+//   return result;
+// }
+
+// const sum1 = combine3('10', '20', 'as-number');
+// const sum2 = combine3(10, 50, 'as-number');
+// const combinedName = combine3('Jagtap', 'MernStack', 'as-string');
+// console.log(sum1);
+// console.log(sum2);
+// console.log(combinedName);
+
+// -------------------------------------------------- ( Example  of type alias )
+
+// type User = {
+//   name: string;
+//   age: number;
+//   skills: string[];
+// };
+// const user: User = {
+//   name: 'Umesh',
+//   age: 29,
+//   skills: ['JavaScript', 'ReactJS', 'NodeJS'],
+// };
+// console.log(user.name);
+// console.log(user.age);
+// console.log(user.skills);
+
+// -------------------------------------------------- ( Example of interface )
+
+interface User {
+  name: string;
+  age: number;
+  skills: string[];
 }
 
-const sum1 = combine2('10', '20', 'as-number');
-const sum2 = combine2(10, 50, 'as-number');
-const combinedName = combine2('Patel', 'MernStack', 'as-string');
-console.log(sum1);
-console.log(sum2);
-console.log(combinedName);
+const user: User = {
+  name: 'Umesh',
+  age: 29,
+  skills: ['JavaScript', 'ReactJS', 'NodeJS'],
+};
 
-// TYPE ALIAS / CUSTOM TYPES
+console.log(user.name);
+console.log(user.age);
+console.log(user.skills);
