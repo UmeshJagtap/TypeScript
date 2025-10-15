@@ -1,5 +1,3 @@
-// Removed duplicate add function implementation to avoid errors
-
 // TS add Function
 // number, string, boolean
 
