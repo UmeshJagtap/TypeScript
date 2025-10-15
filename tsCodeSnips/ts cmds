@@ -21,3 +21,8 @@ git commit -m "basic core types"
 git branch -M main
 git remote add origin https://github.com/Surendrakumar..
 git push -u origin main
+
+// -----------------------------------------------------<< TS Index >>
+L1 -- TS number, string, boolean
+L2 -- TS Object, Array, Tuple, Enum
+L3 -- TS UNION, LITERAL TYPES,
