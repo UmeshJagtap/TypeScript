@@ -107,20 +107,41 @@
 // console.log(user.age);
 // console.log(user.skills);
 
-// -------------------------------------------------- ( Example of interface )
+// -------------------------------------------------- ( Example  of type alias with function )
 
-interface User {
+type User = {
   name: string;
   age: number;
   skills: string[];
-}
-
+};
 const user: User = {
   name: 'Umesh',
   age: 29,
   skills: ['JavaScript', 'ReactJS', 'NodeJS'],
 };
 
-console.log(user.name);
-console.log(user.age);
-console.log(user.skills);
+function greet(user: User) {
+  console.log(`Hi, I am ${user.name} and I am ${user.age} years old.`);
+}
+// console.log(user.name);
+// console.log(user.age);
+
+greet(user);
+
+// -------------------------------------------------- ( Example of interface )
+
+// interface User {
+//   name: string;
+//   age: number;
+//   skills: string[];
+// }
+
+// const user: User = {
+//   name: 'Umesh',
+//   age: 29,
+//   skills: ['JavaScript', 'ReactJS', 'NodeJS'],
+// };
+
+// console.log(user.name);
+// console.log(user.age);
+// console.log(user.skills);
