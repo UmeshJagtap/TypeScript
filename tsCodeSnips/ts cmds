@@ -26,4 +26,8 @@ git push -u origin main
 L1 -- TS number, string, boolean
 L2 -- TS Object, Array, Tuple, Enum
 L3 -- TS UNION, LITERAL TYPES, TYPE ALIAS / CUSTOM TYPES, Example of type alias, Example of interface
-// 1:30
+L4 -- TS Functions : Function return type examples, number, string, void, function.
+      TS Functions types & callbacks
+// 1:46
+//L5 -- TS OPTIONAL PARAMETERS, DEFAULT PARAMETERS, REST PARAMETERS
+
