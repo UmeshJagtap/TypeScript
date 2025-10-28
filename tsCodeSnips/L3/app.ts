@@ -145,3 +145,7 @@ greet(user);
 // console.log(user.name);
 // console.log(user.age);
 // console.log(user.skills);
+
+// Same as type, but with syntax difference
+// >> type User = {
+// >> interface User
