@@ -13,3 +13,9 @@ const names: readonly string[] = ['Dylan'];
 names.push('Jack'); // Error: Property 'push' does not exist on type 'readonly string[]'.
 // try removing the readonly modifier and see if it works?
 console.log(names);
+
+
+
+To check : 
+🚀 TypeScript Crash Course: Master the Essentials in One Video! Ignite Your Web Dev Journey Today!
+https://www.youtube.com/watch?v=qYP2P8ipa-Y
