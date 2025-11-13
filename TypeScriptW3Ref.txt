@@ -31,7 +31,7 @@ TypeScript Exercises
 TypeScript allows developers to add "types" to JavaScript.
 JavaScript is a "losely" typed language.
 
-> > TypeScript Getting Started
+> > TypeScript Getting Started                   
 
 TypeScript Compiler -------------------------------------------------------------------------------------- v --
 
