@@ -2,9 +2,9 @@
 // ------------------------------------------------------ ( Function return type examples )
 // Function return type :- number
 
-function add(num1: number, num2: number): number {
-  return num1 + num2; // return 30
-}
+// function add(num1: number, num2: number): number {
+//   return num1 + num2; // return 30
+// }
 // console.log(add(10, 20));
 
 // function add(num1: number, num2: number): string {
@@ -34,7 +34,9 @@ function add(num1: number, num2: number): number {
 // Function return type :- function
 
 // let combineFunction: Function;
+
 // combineFunction = 10; // Invalid
+// combineFunction = 'Patel'; // Invalid
 
 // combineFunction = function () {}; // Valid
 
@@ -47,15 +49,34 @@ function add(num1: number, num2: number): number {
 // GOOD PPRACTICE:
 
 // let combineFunction: (a: number, b: number) => number;
-// // combineFunction = greet;
+
+// combineFunction = greet;  // Invalid
 // // Type '(name: string) => string' is not assignable to type '(a: number, b: number) => number'.
 // // Types of parameters 'name' and 'a' are incompatible.
 // // Type 'number' is not assignable to type 'string'.
 
-// combineFunction = add;
+// combineFunction = add; // Valid
 // console.log(combineFunction(100, 200)); // 300
 
 // ------------------------------------------------------ ( Function type & callbacks )
-// 1:46:00
 
-function addHandle(num1: number, num2: number, cb);
+function addHandle(num1: number, num2: number, cb: (n: number) => void) {
+  const result = num1 + num2;
+  // cb('result'); // Error: Argument of type 'string' is not assignable to parameter of type 'number'.
+  cb(result); // Valid
+}
+
+// addHandle();   // Error: Expected 3 arguments, but got 0.
+addHandle(10, 20, (result: number) => {
+  console.log('Addition Result:', result); // Addition Result: 30
+});
+
+// You can also use "type" for the callback parameter ----------->>>>
+type CBF = (n: number) => void;
+function addHandle2(num1: number, num2: number, cb: CBF) {
+  const result = num1 + num2;
+  cb(result); // Valid
+}
+addHandle2(10, 20, (result: number) => {
+  console.log('Addition Result:', result); // Addition Result: 30
+});
