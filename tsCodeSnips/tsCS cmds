@@ -11,6 +11,14 @@ tsc app.ts >> this will generate a new app.js file
 New app.js will be generated
 $ node app.js
 
+TS Watch Mode :
+tsc classes.ts --watch
+-- this will keep watching for any changes in the ts file and will automatically compile to js file
+
+tsc --init
+-- this will generate a tsconfig.json file      
+-- to compile all the ts files in the folder
+
 http://127.0.0.1:5500/ts%20code%20snips/index.html
 http://127.0.0.1:5500/tsCodeSnips/
 
@@ -27,7 +35,7 @@ L1 -- TS number, string, boolean
 L2 -- TS Object, Array, Tuple, Enum
 L3 -- TS UNION, LITERAL TYPES, TYPE ALIAS / CUSTOM TYPES, Example of type alias, Example of interface
 L4 -- TS Functions : Function return type examples, number, string, void, function.
-      TS Functions types & callbacks
-// 1:46
-//L5 -- TS OPTIONAL PARAMETERS, DEFAULT PARAMETERS, REST PARAMETERS
+      TS Functions types & callbacks, type unknown, type any, type never
+L5 -- TS classes & interface : classes, access modifiers, interface
+// 02:06:00
 
