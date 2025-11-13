@@ -1,0 +1,33 @@
+// TypeScript Compiler :-
+// https://www.w3schools.com/typescript/trytypescript.php?filename=demo_editor
+// https://stackblitz.com/edit/react-tailwind-pfrwes?file=Finds%2FDSA.js
+
+// Array
+// Example 1
+const names: string[] = [];
+names.push('Dylan');
+console.log(names); // [ 'Dylan' ]
+
+// Example 2
+const names: readonly string[] = ['Dylan'];
+names.push('Jack'); // Error: Property 'push' does not exist on type 'readonly string[]'.
+// try removing the readonly modifier and see if it works?
+console.log(names);
+
+To check :
+🚀 TypeScript Crash Course: Master the Essentials in One Video! Ignite Your Web Dev Journey Today!
+https://www.youtube.com/watch?v=qYP2P8ipa-Y
+
+Master TypeScript in one video 🔥 >> https://www.youtube.com/watch?v=66_bET6sI20
+
+let a: string;
+let nambo: number;
+let check: boolean;
+
+let a:string = "Test";
+let nambo: number = 343;
+let check: boolean = true;
+
+let nambo=<string>"Admin";
+let nambo=<string>343 // Conversion of type 'number' to type 'string' may be a mistake.
+Extension : Pretty TypeScript Error
