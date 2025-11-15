@@ -13,11 +13,14 @@ $ node app.js
 
 TS Watch Mode :
 tsc classes.ts --watch
--- this will keep watching for any changes in the ts file and will automatically compile to js file
+tsc classes.ts -w
+-- this will keep watching for any changes in the ts file ( single file ) and will automatically compile to js file
 
+To compile all .ts files together :-
 tsc --init
--- this will generate a tsconfig.json file      
--- to compile all the ts files in the folder
+-- this will generate a tsconfig.json file
+
+> > Use exclude option to prevent/stop the ts file from compilation
 
 http://127.0.0.1:5500/ts%20code%20snips/index.html
 http://127.0.0.1:5500/tsCodeSnips/
@@ -34,8 +37,7 @@ git push -u origin main
 L1 -- TS number, string, boolean
 L2 -- TS Object, Array, Tuple, Enum
 L3 -- TS UNION, LITERAL TYPES, TYPE ALIAS / CUSTOM TYPES, Example of type alias, Example of interface
-L4 -- TS Functions : Function return type examples, number, string, void, function.
-      TS Functions types & callbacks, type unknown, type any, type never
-L5 -- TS classes & interface : classes, access modifiers, interface
-// 02:06:00
-
+L4 -- TS Functions : Function return type examples, number, string, void, function,Functions types & callbacks,
+L5 -- TS type unknown, type any, type never
+L6 -- TS classes & interface : classes, access modifiers (public, private, readonly), inheritence
+// 02:36:00
