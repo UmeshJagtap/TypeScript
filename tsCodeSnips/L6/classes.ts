@@ -1,7 +1,7 @@
 // Console log statement
 // console.log('>>> Lets learn classes and interface in TypeScript 12345 >>>');
 // Object.defineProperty(exports, '__esModule', { value: true });
-console.log('This is classes - !!!!!12335');
+console.log('This is classes - !!12345!!');
 // ------------------------------------------------------ ( classes type examples )
 
 // Basic classes  -----------------------------------------------<<<<
@@ -126,6 +126,110 @@ console.log('This is classes - !!!!!12335');
 // }
 
 // Inheritence ----------------------------<<<<
+// Override properties & protected access modifier
+// Setters & Getters methods
+
 // Typescript tutorial for beginners
 // --https://www.youtube.com/watch?v=Ap2s-dA2TQ8
 // 2:36:00
+
+// class Department {
+//   public name: string;
+//   protected employees: string[];
+//   private readonly id: string;
+//   constructor(id: string, n: string) {
+//     this.name = n;
+//     this.employees = [];
+//     this.id = id;
+//   }
+//   describe(this: Department) {
+//     console.log(`Department (${this.id}): , ${this.name}`);
+//   }
+
+//   addEmployee(emp: string) {
+//     this.employees.push(emp);
+//   }
+//   printEmployeeInformation() {
+//     console.log('Number of emp: ', this.employees.length);
+//     console.log(this.employees);
+//   }
+// }
+
+// class AccountingDepartment extends Department {
+//   // reports: string[] = [];
+//   constructor(id: string, private reports: string[]) {
+//     super(id, 'Accounting');
+//   }
+
+//   addReports(text: string) {
+//     this.reports.push(text);
+//   }
+//   printReports() {
+//     console.log(this.reports);
+//   }
+//   addEmployee(emp: string): void {
+//     if (emp === 'Patel') {
+//       return;
+//     }
+//     this.employees.push(emp); // Error: Property 'employees' is protected and is accessile outside class 'Department'
+//   }
+//   get getReports() {
+//     if (this.reports.length > 0) {
+//       return this.reports;
+//     }
+//     throw new Error('Report not found');
+//   }
+//   set setReports(value: string) {
+//     if (!value) {
+//       throw new Error('Please pass in a valid value!');
+//     }
+//     this.reports.push(value);
+//   }
+// }
+
+// const accDep = new AccountingDepartment('d1', []);
+// accDep.addReports('Bugs found in Q1');
+// // accDep.printReports();
+// // accDep.describe();
+
+// accDep.addEmployee('Umesh AJ');
+// accDep.addEmployee('Patel');
+// // accDep.printEmployeeInformation();
+
+// // setter & getter
+// console.log('getter --> ', accDep.getReports);
+// accDep.setReports = 'Code review completed.';
+// console.log('getter --> ', accDep.getReports);
+
+// static method ----------------------------<<<<
+
+class Department2 {
+  public name: string;
+  protected employees: string[];
+  private readonly id: string;
+  constructor(id: string, n: string) {
+    this.name = n;
+    this.employees = [];
+    this.id = id;
+  }
+  describe(this: Department2) {
+    console.log(`Department (${this.id}): , ${this.name}`);
+  }
+
+  addEmployee(emp: string) {
+    this.employees.push(emp);
+  }
+  printEmployeeInformation() {
+    console.log('Number of emp: ', this.employees.length);
+    console.log(this.employees);
+  }
+
+  static getSalary() {
+    return { salary: 500000 };
+  }
+}
+
+const salary = Department2.getSalary(); // static method called without creating instance of class i.e. without 'new' keyword
+console.log('Static method call --> ', salary);
+
+// abstract classes ----------------------------<<<<
