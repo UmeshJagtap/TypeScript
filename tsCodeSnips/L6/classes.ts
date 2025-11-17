@@ -212,7 +212,7 @@ class Department2 {
     this.employees = [];
     this.id = id;
   }
-  describe(this: Department2) {
+  describe(this: Department2): void {
     console.log(`Department (${this.id}): , ${this.name}`);
   }
 
@@ -233,3 +233,35 @@ const salary = Department2.getSalary(); // static method called without creating
 console.log('Static method call --> ', salary);
 
 // abstract classes ----------------------------<<<<
+
+abstract class Department3 {
+  name: string;
+  protected employees: string[] = [];
+  protected readonly id: string;
+
+  constructor(id: string, n: string) {
+    this.id = id;
+    this.name = n;
+  }
+  abstract describe(this: Department3): void;
+  abstract displayName(): void;
+}
+
+class Subclass extends Department3 {
+  constructor(id: string, private reports: string[]) {
+    super(id, 'Accounting');
+  }
+  describe(): void {
+    console.log(`Department : (${this.id}) `);
+  }
+  displayName(): void {
+    console.log('Department name is :', this.name);
+  }
+}
+
+const subClass = new Subclass('D1', []);
+subClass.describe();
+subClass.displayName();
+
+// ------------------------------------------------------ ( classes )
+// classes done !!! ---------------- x -----------------
