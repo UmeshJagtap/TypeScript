@@ -41,6 +41,6 @@
     "moduleDetection": "force",
     "skipLibCheck": true
   },
-  "exclude": ["analytics.ts", "*.dev.ts", "node_modules"], // "**/*.dev.ts",
-  "include": ["interface.ts", "classes.ts"]
+  "exclude": ["classes.ts", "analytics.ts", "*.dev.ts", "node_modules"], // "**/*.dev.ts",
+  "include": ["interface.ts"]
 }
