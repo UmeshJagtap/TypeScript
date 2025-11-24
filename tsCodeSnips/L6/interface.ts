@@ -47,11 +47,11 @@ console.log('This is interface - !!!12345!!!');
 //   greet(text: string): void;
 // }
 
-//------------------------ break
-interface Greetable {
-  name: string;
-  greet(text: string): void;
-}
+// <<------ can be used to implement multiple interfaces ------<<<<
+// interface Greetable {
+//   name: string;
+//   greet(text: string): void;
+// }
 // interface Greetable2 {
 //   name: string;
 //   greet(text: string): void;
@@ -59,16 +59,99 @@ interface Greetable {
 // }
 
 // class Person implements Greetable, Greetable2 {
-class Person implements Greetable {
+//   // class Person implements Greetable {
+//   name: string;
+//   constructor(n: string) {
+//     this.name = n;
+//   }
+//   greet(text: string): void {
+//     console.log(`${text} ${this.name}`);
+//   }
+//   salutation(text: string): void {
+//     console.log(`${text} ${this.name}`);
+//   }
+// }
+
+// const p1 = new Person('Aman');
+// p1.greet('Hello there, I am '); // Hello there, I am Aman
+// p1.salutation('Good Morning, I am Mr.'); // Good Morning, I am Mr. Aman
+
+//---------------- readonly property in interface --------------<<<<
+
+// interface Greetable {
+//   readonly name: string;
+//   greet(text: string): void;
+// }
+
+// class Person implements Greetable {
+//   // class Person implements Greetable {
+//   name: string;
+//   constructor(n: string) {
+//     this.name = n;
+//   }
+//   greet(text: string): void {
+//     console.log(`${text} ${this.name}`);
+//   }
+// }
+
+// // const p1 = new Person('Bamon');
+// // p1.greet('Hello there, I am '); // Hello there, I am Bamon
+
+// let user1: Greetable;
+// user1 = new Person('Patel');
+// user1.name = 'New Name'; // Error: Cannot assign to 'name' because it is a read-only property.
+
+// Extending interfaces --------------------------<<<<
+
+// interface Named {
+//   readonly name: string;
+// }
+// interface AnotherInterface {}
+
+// interface Greetable extends Named, AnotherInterface {
+//   greet(text: string): void;
+// }
+
+// class Person implements Greetable {
+//   name: string;
+//   constructor(n: string) {
+//     this.name = n;
+//   }
+//   greet(text: string): void {
+//     console.log(`${text} ${this.name}`);
+//   }
+// }
+
+// let user1: Greetable;
+// user1 = new Person('Patel');
+// console.log(user1);
+// user1.greet('Hello there, I am '); // Hello there, I am Patel
+
+// ( type / interface ) --------------------------<<<<
+
+// // type addFun = (a: number, b: number) => number;
+// // OR
+// interface addFun {
+//   (a: number, b: number): number;
+// }
+
+// let add: addFun;
+
+// // add = (n1: number, n2: number, n3: number) => {  // Error: Type '(n1: number, n2: number, n3: number) => number' is not assignable to type 'addFun'.
+// add = (n1: number, n2: number) => {
+//   return n1 + n2;
+// };
+// console.log(add(5, 10)); // 15
+
+// optional ( ? ) --------------------------<<<<
+
+interface Named {
+  readonly name: string;
+  outputName?: string; // optional property, may or may not be present
+}
+class Person implements Named {
   name: string;
   constructor(n: string) {
     this.name = n;
   }
-  greet(text: string): void {
-    console.log(`${text} ${this.name}`);
-  }
 }
-
-const p1 = new Person('Aman');
-p1.greet('Hello there, I am '); // Hello there, I am Aman
-// p1.salutation('Good Morning, I am '); // Error: Property 'salutation' does not exist on type 'Person'.

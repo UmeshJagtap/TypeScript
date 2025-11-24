@@ -1,4 +1,23 @@
-// -----------------------------------------------------<< Typescript >>
+// -----------------------------------------------------<< TS Index >>
+L1 -- TS number, string, boolean
+L2 -- TS Object, Array, Tuple, Enum
+L3 -- TS UNION, LITERAL TYPES, TYPE ALIAS / CUSTOM TYPES, Example of type alias, Example of interface
+L4 -- TS Functions : Function return type examples, number, string, void, function,Functions types & callbacks,
+L5 -- TS type unknown, type any, type never
+L6 -- TS classes & interface :
+
+> > TS classes, access modifiers (public, private, readonly), inheritence, override properties & protected access modifier, setters & getters methods, static method, abstract classes
+> > TS interface, implementing multiple interfaces, readonly property in interface, extending interfaces, ( type / interface ), optional ( ? )
+
+In Shorts :-- +++
+
+> > We use extends ( one class to other )
+> > We use implements ( type for the class )
+> > We also use extends ( one interface to other )
+> > Error: Cannot assign to 'name' because it is a read-only property.
+> > optional property, may or may not be present
+
+// -----------------------------------------------------<< Typescript Commands >>
 
 Typescript tutorial for beginners
 --https://www.youtube.com/watch?v=Ap2s-dA2TQ8
@@ -32,15 +51,3 @@ git commit -m "basic core types"
 git branch -M main
 git remote add origin https://github.com/Surendrakumar..
 git push -u origin main
-
-// -----------------------------------------------------<< TS Index >>
-L1 -- TS number, string, boolean
-L2 -- TS Object, Array, Tuple, Enum
-L3 -- TS UNION, LITERAL TYPES, TYPE ALIAS / CUSTOM TYPES, Example of type alias, Example of interface
-L4 -- TS Functions : Function return type examples, number, string, void, function,Functions types & callbacks,
-L5 -- TS type unknown, type any, type never
-L6 -- TS classes & interface :
-
-> > classes, access modifiers (public, private, readonly), inheritence, override properties & protected access modifier, setters & getters methods, static method, abstract classes
-> > \\+-+// 03:06:00
-> > interface,
