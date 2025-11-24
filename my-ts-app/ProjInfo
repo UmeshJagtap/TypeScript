@@ -1,1 +1,30 @@
-Build and Deploy a Modern Next.js Application | React, Next JS, TypeScript, Tailwind CSS --> https://www.youtube.com/watch?v=pUNSHPyVryU&t=15s
+Build and Deploy a Modern Next.js Application | React, Next JS, TypeScript, Tailwind CSS ( JavaScript Mastery ) >> https://www.youtube.com/watch?v=pUNSHPyVryU&t=15s
+
+https://rapidapi.com/apininjas/api/cars-by-api-ninjas
+https://api-ninjas.com/api/cars
+https://api.api-ninjas.com/v1/carmakes >> Returns a list of all car makes (manufacturers).
+
+The latest version of Next.js is 16.0.3, released on November 13, 2025.
+This version, known as the Active LTS (Long-Term Support) release, was officially launched on October 21, 2025, bringing significant improvements to developer experience, routing, and caching.
+Key features include the stable release of Turbopack as the default bundler, which offers up to 10x faster Fast Refresh and 2x to 5x faster production builds.
+Next.js 16 also introduces Cache Components, a new programming model using the "use cache" directive to provide explicit control over caching for instant navigation.
+The release includes enhanced routing with optimized navigation and prefetching, improved caching APIs with new updateTag() and refresh() functions, and built-in React Compiler support for automatic memoization.
+Additionally, it ships with React 19.2, introducing features like View Transitions, useEffectEvent(), and the component.
+The update also features a new proxy.ts file name for Node.js runtime middleware, replacing middleware.ts to clarify its purpose at the network edge.
+Next.js 16 requires Node.js 20.9 or higher and TypeScript 5 or higher for compatibility.
+
+// Route Handler (Next.js) --------------------------<<<<<
+Yes, the Next.js App Router has API routes, but they are implemented using a new convention called Route Handlers.
+Route Handlers are the direct equivalent of API Routes from the older Pages Router and are the recommended way
+to handle backend logic within the app directory.
+
+Example: Creating a GET Route Handler
+To create a simple API endpoint at /api/hello, you would create a file at app/api/hello/route.ts (or .js).
+typescript
+// app/api/hello/route.ts
+import { NextResponse } from 'next/server';
+
+export async function GET(request: Request) {
+// Handle the GET request
+return NextResponse.json({ message: 'Hello from the API!' }, { status: 200 });
+}
