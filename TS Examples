@@ -14,12 +14,9 @@ names.push('Jack'); // Error: Property 'push' does not exist on type 'readonly s
 // try removing the readonly modifier and see if it works?
 console.log(names);
 
-To check :
-🚀 TypeScript Crash Course: Master the Essentials in One Video! Ignite Your Web Dev Journey Today!
-https://www.youtube.com/watch?v=qYP2P8ipa-Y
 
-Master TypeScript in one video 🔥 >> https://www.youtube.com/watch?v=66_bET6sI20
 
+// Master TypeScript in one video 🔥 (6 Pack Programmer) >> https://www.youtube.com/watch?v=66_bET6sI20
 let a: string;
 let nambo: number;
 let check: boolean;
@@ -31,3 +28,76 @@ let check: boolean = true;
 let nambo=<string>"Admin";
 let nambo=<string>343 // Conversion of type 'number' to type 'string' may be a mistake.
 Extension : Pretty TypeScript Error
+
+// 🚀 TypeScript Crash Course: Master the Essentials in One Video! Ignite Your Web Dev Journey Today! >> https://www.youtube.com/watch?v=qYP2P8ipa-Y
+// Interface --------------------------------V--<<
+
+// interface Employee {
+//   name: string;
+//   age: number;
+//   desgn: string;
+//   greet(text: string): void;
+// }
+
+// class Infy implements Employee {
+//   name: string;
+//   age: number = 28;
+//   desgn: string = '';
+//   constructor(n: string) {
+//     this.name = n;
+//   }
+//   greet(text: string): void {
+//     console.log(`${text} ${this.desgn + this.age}`);
+//   }
+// }
+
+// const anExampleVariable = 'Hello World';
+// console.log(anExampleVariable);
+
+// const infy1 = new Infy('Patel');
+// infy1.greet('Hello');
+// infy1.desgn = 'Mr.';
+
+// console.log(`${JSON.stringify(infy1)}`);
+
+// Public, private access modifiers ------------V--<<
+
+// public --ek dum khula
+// private --ek dum closed
+// protected --khud ke ander use karo & jo class aapke main class ko extend karey waha use karo
+
+// class Rbank {
+//   private balance = 1200; //
+//   private mob = +91;
+//   private setBalance(balance: number) {
+//     this.balance = balance;
+//   }
+//   protected updateKYC(mob: number) {
+//     this.mob = mob;
+//   }
+// }
+
+// class Ubank extends Rbank {
+//   private ubankMob = null;
+//   updateKYC(mob: number) {
+//     this.ubankMob = mob;
+//   }
+// }
+
+// let bank0 = new Rbank();
+// // bank0.setBalance(12000); // Invalid --Property 'setBalance' is private and only accessible within class 'RBank'
+// let bank1 = new Ubank();
+// bank1.updateKYC(+917773334769);
+// console.log(bank1);
+
+// TS DOM ---------------------------------------V--<<
+// function abcd(html: HTMLElement);
+// function abcd(div: HTMLDivElement);
+// function abcd(btn: HTMLButtonElement);
+// function abcd(img: HTMLImageElement);
+// function abcd(input: HTMLInputElement);
+// function tsDom() {
+//   document.querySelector('p') as HTMLParagraphElement;
+//   // <HTMLParagraphElement> document.querySelector("p");
+//   document.querySelector('div') as HTMLDivElement;
+// }
