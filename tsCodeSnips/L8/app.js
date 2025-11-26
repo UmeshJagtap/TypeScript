@@ -51,6 +51,9 @@ function merge(objA, objB, objC) {
 var res = merge({ name: 'patel' }, { role: 'Software engineer' }, { age: 25 });
 console.log(res);
 // 2. Generics Constraints
-function createObject(T, extend, string, U, extend, number, V, extend, boolean) {
+function createObject(key, value, isActive) {
+    return { key: key, value: value, isActive: isActive };
 }
-https: ; //www.youtube.com/watch?v=Ap2s-dA2TQ8  >>  // 4:23:13
+var obj = createObject('age', 25, true);
+// https://www.youtube.com/watch?v=Ap2s-dA2TQ8  >>  // 4:23:13
+// tsc app.ts -w

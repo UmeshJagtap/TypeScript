@@ -55,8 +55,14 @@ console.log(res);
 
 // 2. Generics Constraints
 
-function createObject( T extend string, U extend number, V extend boolean) {
-
+function createObject<T extends string, U extends number, V extends boolean>(
+  key: T,
+  value: U,
+  isActive: V
+): { key: T; value: U; isActive: V } {
+  return { key, value, isActive };
 }
+const obj = createObject('age', 25, true);
 
-https://www.youtube.com/watch?v=Ap2s-dA2TQ8  >>  // 4:23:13
+// https://www.youtube.com/watch?v=Ap2s-dA2TQ8  >>  // 4:23:13
+// tsc app.ts -w
