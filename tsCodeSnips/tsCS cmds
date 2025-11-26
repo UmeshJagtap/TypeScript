@@ -9,6 +9,9 @@ L6 -- TS classes & interface :
 > > TS classes, access modifiers (public, private, readonly), inheritence, override properties & protected access modifier, setters & getters methods, static method, abstract classes
 > > TS interface, implementing multiple interfaces, readonly property in interface, extending interfaces, ( type / interface ), optional ( ? )
 
+L7 -- Type Guards, Type Guards for strings, Type Guards for objects, Type Guards in class
+type casting / type assertion
+
 In Shorts :-- +++
 
 > > We use extends ( one class to other )
