@@ -1,0 +1,49 @@
+ZUK@DESKTOP-0M6F0IP MINGW64 ~/Documents/GitHub/TypeScript/tsCodeSnips (main)
+$ npm create vite@latest
+Need to install the following packages:
+create-vite@8.2.0
+Ok to proceed? (y) y
+│
+◇ Project name:
+│ todo
+│
+◇ Select a framework:
+│ React
+│
+◇ Select a variant:
+│ TypeScript
+│
+◇ Use rolldown-vite (Experimental)?:
+│ No
+│
+◇ Install with npm and start now?
+│ Yes
+│
+◇ Scaffolding project in C:\Users\ZUK\Documents\GitHub\TypeScript\tsCodeSnips\todo...
+│
+◇ Installing dependencies with npm...
+
+added 195 packages, and audited 196 packages in 57s
+
+48 packages are looking for funding
+run `npm fund` for details
+
+found 0 vulnerabilities
+│
+◇ Starting dev server...
+
+> todo@0.0.0 dev
+> vite
+
+VITE v7.2.4 ready in 1334 ms
+
+➜ Local: http://localhost:5173/
+➜ Network: use --host to expose  
+➜ press h + enter to show help
+
+// Setting up shadcn ---------------------------<<>>
+https://ui.shadcn.com/docs/installation/vite
+
+npm create vite@latest
+
+npm install tailwindcss @tailwindcss/vite
