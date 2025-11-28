@@ -133,5 +133,21 @@ console.log(custJsonRes);
 
 // 5. Generics with class
 
-// https://www.youtube.com/watch?v=Ap2s-dA2TQ8  >>  // 4:29:10
+// https://www.youtube.com/watch?v=Ap2s-dA2TQ8  >>  // 4:39:10
 // tsc app.ts -w
+
+class Container<T> {
+  private content: T;
+  constructor(content: T) {
+    this.content = content;
+  }
+  getContent(): T {
+    return this.content;
+  }
+}
+
+const stringContainer = new Container<string>('Hello');
+console.log(stringContainer.getContent());
+
+const numberContainer = new Container<number>(123);
+console.log(numberContainer.getContent());
