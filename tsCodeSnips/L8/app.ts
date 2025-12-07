@@ -111,43 +111,95 @@ console.log('Generics in TypeScript');
 
 // Generic Default with Interface ----
 
-interface User<T = string> {
-  data: T;
-  status: number;
+// interface User<T = string> {
+//   data: T;
+//   status: number;
+// }
+
+// type Person = {
+//   name: string;
+//   age: number;
+// };
+
+// const response: User = { data: 'Success', status: 200 };
+// const jsonRes: User<object> = { data: { key: 'value' }, status: 200 };
+// // const custJsonRes: User<Person> = {
+// //   data: { name: 'ABCD', age: 30 },
+// //   status: 200,
+// // };
+// const custJsonRes = {
+//   data: { key: 'value', name: 'ABCD', age: 30 },
+//   status: 200,
+// } as User<Person>; // Can also use type assertion
+
+// console.log(response);
+// console.log(jsonRes);
+// console.log(custJsonRes);
+
+// 5. Generics with class ----------------------<<<<
+
+// class Container<T> {
+//   private content: T;
+//   constructor(content: T) {
+//     this.content = content;
+//   }
+//   getContent(): T {
+//     return this.content;
+//   }
+// }
+
+// const stringContainer = new Container<string>('Hello');
+// console.log(stringContainer.getContent()); // Hello
+
+// const numberContainer = new Container<number>(123);
+// console.log(numberContainer.getContent()); // 123
+
+// const objectContainer = new Container<object>({ keyof: 'value' });
+// console.log(objectContainer.getContent()); // { keyof: 'value' }
+
+// 6. Generic with Array  -----------------------<<<<
+
+// function getFirst<T>(arr: T[]): T {
+//   return arr[0];
+// }
+// const firstNumber = getFirst([1, 2, 3, 4, 5]);
+// const firstCharacter = getFirst(['a', 'b', 'c', 'd']);
+// const firstObject = getFirst([{ name: 'Stacky' }, { name: 'Patel' }]);
+// console.log(firstNumber);
+// console.log(firstCharacter);
+// console.log(firstObject);
+
+// 7. Generic with keyof  ------------------------<<<<
+
+// // https://www.youtube.com/watch?v=Ap2s-dA2TQ8  >>  // 4:46:10
+// // tsc app.ts -w
+
+// const Person = { name: 'Mernstack' };
+// console.log(Person.name);
+// console.log(Person['name']);
+
+// function getProperty(obj: object, key: string) {
+//   return obj[key];
+// }
+// const res1 = getProperty({}, 'name');
+// console.log(res1);  // undefined
+
+function getProperty<T extends object, K extends keyof T>(
+  obj: T,
+  key: K
+): T[K] {
+  return obj[key];
 }
 
-type Person = {
-  name: string;
-  age: number;
-};
+const person = { name: 'Patel', age: 21 };
+const name1 = getProperty(person, 'name');
+const age1 = getProperty(person, 'age');
+// const role1 = getProperty({}, 'role'); // Argument of type '"role"' is not assignable to parameter of type 'never'.
+console.log(name1); // Patel
+console.log(age1); // 21
 
-const response: User = { data: 'Success', status: 200 };
-const jsonRes: User<object> = { data: { key: 'value' }, status: 200 };
-const custJsonRes: User<Person> = {
-  data: { name: 'ABCD', age: 30 },
-  status: 200,
-};
-console.log(response);
-console.log(jsonRes);
-console.log(custJsonRes);
-
-// 5. Generics with class
-
-// https://www.youtube.com/watch?v=Ap2s-dA2TQ8  >>  // 4:39:10
-// tsc app.ts -w
-
-class Container<T> {
-  private content: T;
-  constructor(content: T) {
-    this.content = content;
-  }
-  getContent(): T {
-    return this.content;
-  }
-}
-
-const stringContainer = new Container<string>('Hello');
-console.log(stringContainer.getContent());
-
-const numberContainer = new Container<number>(123);
-console.log(numberContainer.getContent());
+const person2 = { company: 'Stacky Tech', location: 'India' };
+const company1 = getProperty(person2, 'company');
+// const location1 = getProperty(person2, 'address'); // Argument of type '"address"' is not assignable to parameter of type '"company" | "location"'.
+console.log(company1); // Stacky Tech
+// console.log(location1); // undefined

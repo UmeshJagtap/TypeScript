@@ -12,7 +12,7 @@ L6 -- TS classes & interface :
 L7 -- Type Guards, Type Guards for strings, Type Guards for objects, Type Guards in class
 type casting / type assertion
 
-L8 -- Generics intro, GENERICS DEF, <T,U>, Generics Constraints, Generics Interface, Generics Default
+L8 -- Generics intro, GENERICS DEF, <T,U>, Generics Constraints, Generics Interface, Generics Default, Generic Default with Interface, Generics with class, Generic with Array, Generic with keyof
 
 In Shorts :-- +++
 
