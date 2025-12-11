@@ -14,6 +14,8 @@ type casting / type assertion
 
 L8 -- Generics intro, GENERICS DEF, <T,U>, Generics Constraints, Generics Interface, Generics Default, Generic Default with Interface, Generics with class, Generic with Array, Generic with keyof
 
+## todo app --refer NOTES file in todo for commands to install, setup and configure
+
 In Shorts :-- +++
 
 > > We use extends ( one class to other )
@@ -26,6 +28,7 @@ In Shorts :-- +++
 
 Typescript tutorial for beginners
 --https://www.youtube.com/watch?v=Ap2s-dA2TQ8
+--https://github.com/Surendrakumarpatel/TypeScript-PatelMernStack/blob/main/L8/app.ts
 
 TS Install :
 npm install -g typescript --save-dev

@@ -47,3 +47,7 @@ https://ui.shadcn.com/docs/installation/vite
 npm create vite@latest
 
 npm install tailwindcss @tailwindcss/vite
+
+
+For Icons :=
+https://lucide.dev/icons/?search=delete
