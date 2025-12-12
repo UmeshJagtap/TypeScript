@@ -1,0 +1,20 @@
+Node.js
+
+1. Firstly we need package.json >> npm init -y
+2. Init typescript >> $ tsc -init, Compile typescript >> $ tsc -w
+
+3. npm i express body-parser
+4. Nodemon >> npm i --save-dev nodemon
+5. Express type >> npm i --save-dev @types/express
+6. Update the Script
+   "scripts": {
+   "dev": "nodemon dist/index.js",
+
+While running the project ++\_++
+Terminal1 : tsc -w
+Terminal2 : npm run dev
+
+------------ app crashed ------------
+debug and make i to work !!!
+https://www.youtube.com/watch?v=Ap2s-dA2TQ8
+// 6:11:19
