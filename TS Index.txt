@@ -1,0 +1,4 @@
+
+ByteGrad
+TypeScript Generics are EASY once you know this
+https://www.youtube.com/watch?v=ymSRTXT-iK4
