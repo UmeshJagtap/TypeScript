@@ -2,3 +2,7 @@
 ByteGrad
 TypeScript Generics are EASY once you know this
 https://www.youtube.com/watch?v=ymSRTXT-iK4
+
+
+Learn Advanced TypeScript In 25 Minutes (infer, extends, ternaries)
+https://www.youtube.com/watch?v=bnTAOB3P6nM
